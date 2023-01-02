@@ -8,6 +8,26 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
+  has_one :seller, dependent: :destroy
+  has_one :buyer, dependent: :destroy
+  has_one :rider, dependent: :destroy
+
+  accepts_nested_attributes_for :seller
+  accepts_nested_attributes_for :buyer
+  accepts_nested_attributes_for :rider
+
+  def seller
+    super || build_seller
+  end
+
+  def buyer
+    super || build_buyer
+  end
+
+  def rider
+    super || build_rider
+  end
+
   attr_writer :login
 
   validate :validate_username
@@ -17,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def validate_username
-    if User.where(email: username).exists?
+    if User.where(username: username).exists?
       errors.add(:username, :invalid)
     end
   end
@@ -34,4 +54,17 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def email_changed?
+    false
+  end
+
+  def email_required?
+    false
+  end
+ 
+  def will_save_change_to_email?
+    false
+  end
+
 end

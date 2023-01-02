@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  count: 1
+  money: 9.99
+  item: one
+  order: one
+  cart: one
+
+two:
+  count: 1
+  money: 9.99
+  item: two
+  order: two
+  cart: two

@@ -1,26 +1,68 @@
-<h2>登陆</h2>
+<div style="height:80px"> </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "username" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<div style="min-width: 800px">
+  <div class="container d-flex flex-column justify-content-center my-5"
+    style="border: 5px solid black; border-radius: 60px; width: 600px;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <h1 class="my-4">登录</h1>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <% if alert %>
+        <div class="alert alert-danger d-flex mb-4 px-4" style="border: 1px solid darkred; height: 50px;" role="alert">
+          <h5 style="font-size: 16px;"><%= alert %></h5>
+        </div>
+      <% end %>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+            <%= f.label "身份选择：", :class => "form-label" %>
+
+            <%= f.radio_button :type, 1, :checked => true %>
+            <%= f.label "客户" %>
+
+            <%= f.radio_button :type, 2 %>
+            <%= f.label "商家" %>
+
+            <%= f.radio_button :type, 3 %>
+            <%= f.label "骑手" %>
+        </div>
+        
+        <div style="height:20px"> </div>
+
+        <div class="field">
+            <%= f.label "用户名：", :class => "form-label", :style => "width: 70px;", :required => 'required' %>
+          <%= f.text_field :login, autofocus: true, autocomplete: "username", :style => "width: 250px;", :required => 'required' %>
+        </div>
+
+        <div style="height:20px"> </div>
+
+        <div class="field">
+            <%= f.label "密码：", :style => "width: 70px;", :required => 'required'  %>
+          <%= f.password_field :password, autocomplete: "current-password",  :style => "width: 250px;", :required => 'required' %>
+        </div>
+
+        <div style="height:10px"> </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label "记住密码" %>
+          </div>
+        <% end %>
+
+        <div style="height:20px"> </div>
+
+        <div class="actions d-flex justify-content-center">
+          <%= f.submit "登录", :class => "btn btn-dark",:style => "width: 100px;", :required => 'required'%>
+        </div>
+      <% end %>
+
+      <div style="height:20px"> </div>
+
+      <%= render "users/shared/links" %>
+
+      <div style="height:20px"> </div>
+
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "登陆" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

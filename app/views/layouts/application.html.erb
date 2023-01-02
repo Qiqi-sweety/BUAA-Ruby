@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Eshop</title>
+    <title>"狂吃不胖"外卖小站</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,42 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">"狂吃不胖"外卖小站</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">购物车</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">个人中心</a>
+            </li>
+          </ul>
+          <div class="ml-5">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="搜索感兴趣的商品" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+        
+        <div style="margin-left: 20px; margin-right: 20px; text-decoration: none !important;">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <button class="btn btn-outline-dark" type="submit">退出</button>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+
   </body>
-</html>
+<html>
