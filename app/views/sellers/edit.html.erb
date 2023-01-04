@@ -1,10 +1,75 @@
-<h1>Editing seller</h1>
+<div style="height:20px"> </div>
 
-<%= render "form", seller: @seller %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <%= link_to new_seller_path, method: :get do %>
+      <button class="nav-link" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">商品列表</button>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to edit_seller_path(2), method: :get do %>
+      <button class="nav-link active" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">添加商品</button>
+    <% end %>
+  </li>
+</ul>
+<div style="height:30px"> </div>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div style="width: 600px; margin-left:auto;margin-right:auto;">
+      <div class="d-flex flex-column justify-content-center mt-4"
+        style="border: 1px solid black; border-radius: 20px;">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="m-4" style="display: flex; flex-direction: column;">
 
-<br>
+          <div class="form-group">
+            <label for="inputAddress">商品名称</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="点击此处，输入商品名称">
+          </div>
 
-<div>
-  <%= link_to "Show this seller", @seller %> |
-  <%= link_to "Back to sellers", sellers_path %>
+          <div class="form-group">
+            <label for="inputAddress2">商品价格</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="点击此处，输入商品价格">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">商品描述</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="点击此处，添加商品描述"></textarea>
+          </div>
+
+          <div class="row">
+            
+            <div class="col-sm-7">
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">上传商品图片</label>
+                  <div style="height:5px"> </div>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-2">
+            </div>
+            
+            <div class="col-sm-2">
+              <div style="height:20px"> </div>
+              <button type="submit" class="btn btn-primary" style="width: 100px">确认添加</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
 </div>
+
+
+
+<script type="text/javascript">
+var enableTable=function() {
+$('#myTab button').on('click', function (event) {
+  event.preventDefault()
+  $(this).tab('show')
+})
+};
+enableTable();
+</script>

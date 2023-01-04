@@ -2,275 +2,153 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待发货</button>
+    <%= link_to new_seller_path, method: :get do %>
+      <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">商品列表</button>
+    <% end %>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已发货</button>
+    <%= link_to edit_seller_path(2), method: :get do %>
+      <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">添加商品</button>
+    <% end %>
   </li>
 </ul>
 <div style="height:30px"> </div>
 
-<div class="row">
-  <div class="col-sm-3">
-    <div class="card" style="width: 21rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">订单号: 1</li>
-        <li class="list-group-item">
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="container">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm">
+              商品序号
+            </div>
+            <div class="col-sm">
+              商品名称
+            </div>
+            <div class="col-sm">
+              Logo
+            </div>
+            <div class="col-sm">
+              商品价格
+            </div>
+            <div class="col-sm">
+              商品销量
+            </div>
+            <div class="col-sm">
+              是否删除
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm justify-content-center">
+              序号1
+            </div>
+            <div class="col-sm justify-content-center">
               多肉葡萄
             </div>
-            <div class="col-sm-3">
-              数量: 2
+            <div class="col-sm">
+              Logo
             </div>
-            <div class="col-sm-5">
-              价格: 56RMB
+            <div class="col-sm">
+              28RMB/杯
+            </div>
+            <div class="col-sm">
+              332杯/月
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
+                    删除
+                </button>
             </div>
           </div>
-          <div style="height:5px"> </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="container">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm justify-content-center">
+              序号2
+            </div>
+            <div class="col-sm justify-content-center">
               多肉青提
             </div>
-            <div class="col-sm-3">
-              数量: 2
+            <div class="col-sm">
+              Logo
             </div>
-            <div class="col-sm-5">
-              价格: 58RMB
+            <div class="col-sm">
+              29RMB/杯
+            </div>
+            <div class="col-sm">
+              232杯/月
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
+                    删除
+                </button>
             </div>
           </div>
-          <div style="height:5px"> </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="container">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm justify-content-center">
+              序号3
+            </div>
+            <div class="col-sm justify-content-center">
               多肉莓莓
             </div>
-            <div class="col-sm-3">
-              数量: 2
+            <div class="col-sm">
+              Logo
             </div>
-            <div class="col-sm-5">
-              价格: 64RMB
+            <div class="col-sm">
+              32RMB/杯
+            </div>
+            <div class="col-sm">
+              142杯/月
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
+                    删除
+                </button>
             </div>
           </div>
-        </li>
-        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
-        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
-        <li class="list-group-item">用户地址: 北京航空航天大学</li>
-        <li class="list-group-item">
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="container">
           <div class="row">
-            <div class="col-sm-5">
-              <div style="height:5px"> </div>
-              总价: 178RMB
+            <div class="col-sm justify-content-center">
+              序号4
             </div>
-            <div class="col-sm-3">
-              
+            <div class="col-sm justify-content-center">
+              金顶乌龙
             </div>
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                发货
-              </button>
+            <div class="col-sm">
+              Logo
+            </div>
+            <div class="col-sm">
+              16RMB/杯
+            </div>
+            <div class="col-sm">
+              82杯/月
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
+                    删除
+                </button>
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </div>
-  
-  <div class="col-sm-3">
-    <div class="card" style="width: 21rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">订单号: 2</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-4">
-              多肉葡萄
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 56RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉青提
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 58RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉莓莓
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 64RMB
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
-        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
-        <li class="list-group-item">用户地址: 北京航空航天大学</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-5">
-              <div style="height:5px"> </div>
-              总价: 178RMB
-            </div>
-            <div class="col-sm-3">
-              
-            </div>
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                发货
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="col-sm-3">
-    <div class="card" style="width: 21rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">订单号: 3</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-4">
-              多肉葡萄
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 56RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉青提
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 58RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉莓莓
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 64RMB
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
-        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
-        <li class="list-group-item">用户地址: 北京航空航天大学</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-5">
-              <div style="height:5px"> </div>
-              总价: 178RMB
-            </div>
-            <div class="col-sm-3">
-              
-            </div>
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                发货
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-3">
-    <div class="card" style="width: 21rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">订单号: 4</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-4">
-              多肉葡萄
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 56RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉青提
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 58RMB
-            </div>
-          </div>
-          <div style="height:5px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              多肉莓莓
-            </div>
-            <div class="col-sm-3">
-              数量: 2
-            </div>
-            <div class="col-sm-5">
-              价格: 64RMB
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
-        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
-        <li class="list-group-item">用户地址: 北京航空航天大学</li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-sm-5">
-              <div style="height:5px"> </div>
-              总价: 178RMB
-            </div>
-            <div class="col-sm-3">
-              
-            </div>
-            <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                发货
-              </button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
 </div>
-
-
 
 <script type="text/javascript">
 var enableTable=function() {

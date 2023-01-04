@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.role ==0
-      stored_location_for(resource) || new_buyer_path
+      stored_location_for(resource) || buyer_path(2)
     elsif current_user.role ==1
-      stored_location_for(resource) || new_seller_path
+      stored_location_for(resource) || seller_path(2)
     elsif current_user.role ==2
-      stored_location_for(resource) || new_rider_path
+      stored_location_for(resource) || rider_path(2)
     end
   end
 
