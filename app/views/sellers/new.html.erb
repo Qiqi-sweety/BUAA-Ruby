@@ -2,58 +2,282 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">添加商品</button>
+    <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待发货</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">商品列表</button>
+    <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已发货</button>
   </li>
 </ul>
 <div style="height:30px"> </div>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div style="width: 600px; margin-left:auto;margin-right:auto;">
-      <div class="d-flex flex-column justify-content-center mt-4"
-        style="border: 1px solid black; border-radius: 20px;">
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div class="m-4" style="display: flex; flex-direction: column;">
 
-          <div class="form-group">
-            <label for="inputAddress">商品名称</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="点击此处，输入商品名称">
-          </div>
-
-          <div class="form-group">
-            <label for="inputAddress2">商品价格</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="点击此处，输入商品价格">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">商品描述</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="点击此处，添加商品描述"></textarea>
-          </div>
-
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card" style="width: 21rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">订单号: 1</li>
+        <li class="list-group-item">
           <div class="row">
-            
-            <div class="col-sm-7">
-              <form>
-                <div class="form-group">
-                  <label for="exampleFormControlFile1">上传商品图片</label>
-                  <div style="height:5px"> </div>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-              </form>
+            <div class="col-sm-4">
+              多肉葡萄
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
+              数量: 2
             </div>
-            
-            <div class="col-sm-2">
-              <div style="height:20px"> </div>
-              <button type="submit" class="btn btn-primary" style="width: 100px">确认添加</button>
+            <div class="col-sm-5">
+              价格: 56RMB
             </div>
           </div>
-        </div>
-      </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉青提
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 58RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉莓莓
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 64RMB
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
+        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
+        <li class="list-group-item">用户地址: 北京航空航天大学</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-5">
+              <div style="height:5px"> </div>
+              总价: 178RMB
+            </div>
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" style="width: 4rem;">
+                发货
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  
+  <div class="col-sm-3">
+    <div class="card" style="width: 21rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">订单号: 2</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              多肉葡萄
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 56RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉青提
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 58RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉莓莓
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 64RMB
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
+        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
+        <li class="list-group-item">用户地址: 北京航空航天大学</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-5">
+              <div style="height:5px"> </div>
+              总价: 178RMB
+            </div>
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" style="width: 4rem;">
+                发货
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="col-sm-3">
+    <div class="card" style="width: 21rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">订单号: 3</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              多肉葡萄
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 56RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉青提
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 58RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉莓莓
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 64RMB
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
+        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
+        <li class="list-group-item">用户地址: 北京航空航天大学</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-5">
+              <div style="height:5px"> </div>
+              总价: 178RMB
+            </div>
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" style="width: 4rem;">
+                发货
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="card" style="width: 21rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">订单号: 4</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4">
+              多肉葡萄
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 56RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉青提
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 58RMB
+            </div>
+          </div>
+          <div style="height:5px"> </div>
+          <div class="row">
+            <div class="col-sm-4">
+              多肉莓莓
+            </div>
+            <div class="col-sm-3">
+              数量: 2
+            </div>
+            <div class="col-sm-5">
+              价格: 64RMB
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
+        <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
+        <li class="list-group-item">用户地址: 北京航空航天大学</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-5">
+              <div style="height:5px"> </div>
+              总价: 178RMB
+            </div>
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" style="width: 4rem;">
+                发货
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
 </div>
+
+
+
+<script type="text/javascript">
+var enableTable=function() {
+$('#myTab button').on('click', function (event) {
+  event.preventDefault()
+  $(this).tab('show')
+})
+};
+enableTable();
+</script>
