@@ -1,35 +1,36 @@
-<div style="height:20px"> </div>
 
+<% content_for :head do %>
+  <%= javascript_import_module_tag "custom/hello" %>
+<% end %>
+<div style="height:20px"> </div>
 
 <div style="min-width: 800px">
   <div class="container d-flex flex-column justify-content-center my-5"
     style="border: 5px solid black; border-radius: 60px; width: 600px;">
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
       <h1 class="my-4">注册</h1>
-
+      <%= turbo_frame_tag "post" do %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
 
         <div class="field">
             <%= f.label "身份选择：", :class => "form-label" %>
 
-            <%= f.radio_button :type, 1, :checked => true %>
+            <%= f.radio_button :role, "buyer", :checked => true,:id => "radio-id1"  %>
             <%= f.label "客户" %>
 
-            <%= f.radio_button :type, 2 %>
+            <%= f.radio_button :role, "seller",:id => "radio-id2"%>
             <%= f.label "商家" %>
 
-            <%= f.radio_button :type, 3 %>
+            <%= f.radio_button :role, "rider",:id => "radio-id3"%>
             <%= f.label "骑手" %>
         </div>
-
-        <div style="height:10px"> </div>
-
+        
         <div class="field">
           <%= f.label "用户名：    " %>
           <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
         </div>
-
+        
         <div style="height:10px"> </div>
 
         <div class="field">
@@ -44,22 +45,41 @@
           <%= f.label "确认密码：" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
-        
         <div style="height:10px"> </div>
+        <div id="register1">
+        <%= f.fields_for :buyer_attributes do |user_profile_form| %>
+            <%= user_profile_form.label "手机：    " %>
+            <%= user_profile_form.text_field :telephone, autofocus: false  %>
+            <div style="height:10px"> </div>
 
-        <div class="field d-flex align-items-center mb-4">
-          <div class="me-4" style="width: 80px;">
-            <%= f.label "地址", :class => "form-label" %>
-          </div>
-          
-          <%= f.text_field :address, autofocus: true, :class => "form-control", :style => "width: 250px;", :required => 'required' %>
+            <%= user_profile_form.label "地址：    " %>
+            <%= user_profile_form.text_field :address, autofocus: false,  placeholder:"第三红岸基地" %>
+        <% end %>
         </div>
-
+         <div id="register2" style="display:none">
+        <%= f.fields_for :seller_attributes do |user_profile_form| %>
+            <%= user_profile_form.label "地址：    " %>
+            <%= user_profile_form.text_field :address, autofocus: false, placeholder:"第三红岸基地" %>
+           <div style="height:10px"> </div>
+            <%= user_profile_form.label "logo：    " %>
+            <%= user_profile_form.file_field :photo, accept: 'image/png,image/jpeg'%>
+        <% end %>
+        </div>
+         <div id="register3" style="display:none">
+        <%= f.fields_for :rider_attributes do |user_profile_form| %>
+            <%= user_profile_form.label "手机：    " %>
+            <%= user_profile_form.text_field :telephone, autofocus: false%>
+           <div style="height:10px"> </div>
+            <%= user_profile_form.label "地址：    " %>
+            <%= user_profile_form.text_field :address, autofocus: false, placeholder:"第三红岸基地" %>
+        <% end %>
+        </div>
+        <div style="height:10px"> </div>
         <div class="actions">
           <%= f.submit "注册" ,:style => "width: 100px;", :required => 'required' %>
         </div>
       <% end %>
-
+      <% end %>
       <div style="height:20px"> </div>
 
       <%= render "users/shared/links" %>
@@ -68,3 +88,6 @@
     </div>
   </div>
 </div>
+<script>
+
+</script>

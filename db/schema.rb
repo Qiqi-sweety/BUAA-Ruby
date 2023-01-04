@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_071510) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_182722) do
   create_table "buyers", force: :cascade do |t|
     t.string "name"
     t.string "telephone"
@@ -98,7 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_071510) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string "name"
     t.string "image"
     t.string "address"
     t.integer "user_id", null: false
@@ -117,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_071510) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.integer "type"
+    t.integer "role", default: 0
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

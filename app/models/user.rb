@@ -11,12 +11,14 @@ class User < ApplicationRecord
   has_one :seller, dependent: :destroy
   has_one :buyer, dependent: :destroy
   has_one :rider, dependent: :destroy
-
+  
+  #reject seller if address is blank or telephone is blank
   accepts_nested_attributes_for :seller
   accepts_nested_attributes_for :buyer
   accepts_nested_attributes_for :rider
-
+  
   def seller
+    # print "seller"
     super || build_seller
   end
 
@@ -65,6 +67,11 @@ class User < ApplicationRecord
  
   def will_save_change_to_email?
     false
+  end
+  enum role: [:buyer, :seller, :rider]
+
+  def seller
+    super || build_seller
   end
 
 end

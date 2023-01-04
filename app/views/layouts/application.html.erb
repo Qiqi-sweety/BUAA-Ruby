@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= yield(:head) %>
   </head>
 
   <body>
@@ -38,7 +38,7 @@
         </div>
         
         <div style="margin-left: 20px; margin-right: 20px; text-decoration: none !important;">
-          <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= link_to destroy_user_session_path, method: :get do %>
             <button class="btn btn-outline-dark" type="submit">退出</button>
           <% end %>
         </div>

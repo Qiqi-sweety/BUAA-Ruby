@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :migrations
   resources :order_items
   resources :carts
   resources :deliveries
