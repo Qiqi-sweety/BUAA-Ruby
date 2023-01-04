@@ -6,3 +6,4 @@ import "controllers"
 //= require jquery_ujs
 import "jquery"
 import "jquery_ujs"
+import * as bootstrap from "bootstrap"  

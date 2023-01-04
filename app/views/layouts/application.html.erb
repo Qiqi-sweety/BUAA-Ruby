@@ -22,18 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <%= link_to new_buyer_path, method: :get do %>
+                  <%= link_to buyers_path, method: :get do %>
                     <button type="button" class="btn btn-light">首页</button>
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to new_seller_path, method: :get do %>
+                  <%= link_to new_comment_path, method: :get do %>
                     <button type="button" class="btn btn-light">订单管理</button>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to new_order_path, method: :get do %>
-                    <button type="button" class="btn btn-light">评论管理</button>
                   <% end %>
                 </li>
               </ul>
@@ -65,17 +60,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <%= link_to seller_path(2), method: :get do %>
+                  <%= link_to sellers_path, method: :get do %>
                     <button type="button" class="btn btn-light">首页</button>
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to new_seller_path, method: :get do %>
+                  <%= link_to items_path, method: :get do %>
                     <button type="button" class="btn btn-light">商品管理</button>
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to new_order_path, method: :get do %>
+                  <%= link_to orders_path, method: :get do %>
                     <button type="button" class="btn btn-light">订单管理</button>
                   <% end %>
                 </li>
