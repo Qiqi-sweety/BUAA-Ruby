@@ -50,40 +50,19 @@
           </div>
         <% end %>
 
-        <div style="height:20px"> </div>
+        <div style="height:10px"> </div>
 
         <div class="actions d-flex justify-content-center">
-          <%= f.submit "登录", :class => "btn btn-dark",:style => "width: 100px;", :required => 'required'%>
+          <%= f.submit "登录", :class => "btn btn-dark" %>
         </div>
+
       <% end %>
 
       <div style="height:20px"> </div>
 
-      <% if current_user.type == 1 %>
-        <%= link_to buyers_path, style: "text-decoration: none;",method: :get do %>
-          <button type="button" class="btn btn-primary" style="width: 6rem;">
-            登陆
-          </button>
-        <% end %>
-      <% end %>
-
-      <% if current_user.type == 2 %>
-        <%= link_to sellers_path, style: "text-decoration: none;",method: :get do %>
-          <button type="button" class="btn btn-primary" style="width: 6rem;">
-            登陆
-          </button>
-        <% end %>
-      <% end %>
       
-      <% if current_user.type == 3 %>
-        <%= link_to riders_path, style: "text-decoration: none;",method: :get do %>
-          <button type="button" class="btn btn-primary" style="width: 6rem;">
-            登陆
-          </button>
-        <% end %>
-      <% end %>
 
-      <%# <%= render "users/shared/links" %> %>
+      <%= render "users/shared/links" %>
 
       <div style="height:20px"> </div>
 
