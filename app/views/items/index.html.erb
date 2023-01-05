@@ -44,30 +44,33 @@
           </div>
         </div>
       </li>
-      <% count = 1 %>
+      <% count = 0 %>
       <% @shop_items.each do |shop_item| %>
+        <% count = count + 1 %>
         <li class="list-group-item">
           <div class="container">
             <div class="row">
               <div class="col-sm justify-content-center">
-                序号<%= shop_item.id %>
+                序号<%= count %>
               </div>
               <div class="col-sm justify-content-center">
                 <%= shop_item.name %>
               </div>
               <div class="col-sm">
-                
+               
               </div>
               <div class="col-sm">
                 <%= shop_item.price %>元/杯
               </div>
               <div class="col-sm">
-                332杯/月
+                <%= shop_item.sales %>杯/月
               </div>
               <div class="col-sm">
+                <%= link_to shop_item, method: :delete do%>
                   <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
                       删除
                   </button>
+                <% end %> 
               </div>
             </div>
           </div>

@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_032108) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_031538) do
->>>>>>> 8673fe694bdd8c70cb0ec55f00040b0cbeb868a1
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_034247) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -90,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_031538) do
     t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sales"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 

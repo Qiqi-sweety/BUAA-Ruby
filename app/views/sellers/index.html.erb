@@ -5,6 +5,8 @@
 <div style="height:20px"> </div>
 
 <% @this_seller = Seller.find_by(user_id: current_user.id)%>
+<% @shop_items = Item.where(seller_id: @this_seller.id) %>
+<% @ranked_items = (@shop_items.sort_by &:sales).reverse.first(5) %>
 
 <div class="row">
   
@@ -71,110 +73,30 @@
     </button>
   </div>
 
-  <div class="col-sm-2">
-    <div style="height:50px"> </div>
-    <div class="card" style="width: 13rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-8">
-          <div style="height:10px"> </div>
-          <div class="card-body">
-            <h5 class="card-title">多肉葡萄</h5>
+  <% @ranked_items.each do |ranked_item| %>
+    <div class="col-sm-2">
+      <div style="height:50px"> </div>
+      <div class="card" style="width: 13rem;">
+        <div class="row">
+          <div class="col-sm-4">
+            
+          </div>
+          <div class="col-sm-8">
+            <div style="height:10px"> </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= ranked_item.name %></h5>
+            </div>
           </div>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">价格: <%= ranked_item.price %> 元/杯</li>
+          <li class="list-group-item">销量: <%= ranked_item.sales %> 杯/月</li>
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">价格: 28RMB/杯</li>
-        <li class="list-group-item">销量: 323/月</li>
-      </ul>
     </div>
-  </div>
+  <% end %>
 
-  <div class="col-sm-2">
-    <div style="height:50px"> </div>
-    <div class="card" style="width: 13rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-8">
-          <div style="height:10px"> </div>
-          <div class="card-body">
-            <h5 class="card-title">多肉葡萄</h5>
-          </div>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">价格: 28RMB/杯</li>
-        <li class="list-group-item">销量: 323/月</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-2">
-    <div style="height:50px"> </div>
-    <div class="card" style="width: 13rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-8">
-          <div style="height:10px"> </div>
-          <div class="card-body">
-            <h5 class="card-title">多肉葡萄</h5>
-          </div>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">价格: 28RMB/杯</li>
-        <li class="list-group-item">销量: 323/月</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-2">
-    <div style="height:50px"> </div>
-    <div class="card" style="width: 13rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-8">
-          <div style="height:10px"> </div>
-          <div class="card-body">
-            <h5 class="card-title">多肉葡萄</h5>
-          </div>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">价格: 28RMB/杯</li>
-        <li class="list-group-item">销量: 323/月</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-2">
-    <div style="height:50px"> </div>
-    <div class="card" style="width: 13rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-8">
-          <div style="height:10px"> </div>
-          <div class="card-body">
-            <h5 class="card-title">多肉葡萄</h5>
-          </div>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">价格: 28RMB/杯</li>
-        <li class="list-group-item">销量: 323/月</li>
-      </ul>
-    </div>
-  </div>
+  
 
 </div>
 

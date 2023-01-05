@@ -3,6 +3,6 @@ class Seller < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :carts, dependent: :destroy
-  has_one_attached:image
+  has_one_attached :image
   # each seller has an address and logo
 end

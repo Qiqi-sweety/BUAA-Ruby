@@ -4,155 +4,57 @@
 
 <div style="height:20px"> </div>
 
+<% @shops = User.where(role: 1) %>
+
 <div class="row">
+  <% @shops.each do |shop| %>
+    <div class="col-sm-4 mx=5">
+      <div style="height:10px"> </div>
+      <div class="card" style="width: 24rem;">
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="..." class="card-img-top" alt="...">
+          </div>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-7">
+            <div style="height:10px"> </div>
+            <% this_seller=Seller.find_by(user_id: shop.id) %>
+            <%= link_to this_seller, method: :get do %>
+              <div class="card-body">
+                <h4 class="card-title"><%= shop.username %></h4>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <% this_seller=Seller.find_by(user_id: shop.id) %>
+          <li class="list-group-item">店铺地址: <%= this_seller.address %></li>
+          <li class="list-group-item">
+            <h5>
+              推荐商品
+            </h5>
+
+            <% @items = Item.where(seller_id: shop.id)%>
+            <% @ranked_items = (@items.sort_by &:sales).reverse.first(3) %>
+
+            <div style="height:10px"> </div>
+
+            <div class="row">
+              <% @ranked_items.each do |ranked_item| %>
+                <div class="col-sm-4">
+                  <div>
+                    <img src="..." class="card-img-top" alt="...">
+                  </div>
+                  <div><%= ranked_item.name %></div>
+                </div>
+              <% end %>           
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
   
-  <div class="col-sm-4 mx=5">
-    <div style="height:10px"> </div>
-    <div class="card" style="width: 24rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-7">
-          <div style="height:10px"> </div>
-          <%= link_to new_cart_path, method: :get do %>
-            <div class="card-body">
-              <h4 class="card-title">喜茶(乐山路店)</h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">店铺描述: 一家非常好喝的奶茶店!</li>
-        <li class="list-group-item">
-          <h5>
-            推荐商品
-          </h5>
-          <div style="height:10px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉葡萄</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉青提</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                  <img src="..." class="card-img-top" alt="...">
-                </div>
-              <div>多肉莓莓</div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-4 mx=5">
-    <div style="height:10px"> </div>
-    <div class="card" style="width: 24rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-7">
-          <div style="height:10px"> </div>
-          <%= link_to new_cart_path, method: :get do %>
-            <div class="card-body">
-              <h4 class="card-title">喜茶(乐山路店)</h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">店铺描述: 一家非常好喝的奶茶店!</li>
-        <li class="list-group-item">
-          <h5>
-            推荐商品
-          </h5>
-          <div style="height:10px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉葡萄</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉青提</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                  <img src="..." class="card-img-top" alt="...">
-                </div>
-              <div>多肉莓莓</div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-sm-4 mx=5">
-    <div style="height:10px"> </div>
-    <div class="card" style="width: 24rem;">
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="..." class="card-img-top" alt="...">
-        </div>
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-7">
-          <div style="height:10px"> </div>
-          <%= link_to new_cart_path, method: :get do %>
-            <div class="card-body">
-              <h4 class="card-title">喜茶(乐山路店)</h4>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">店铺描述: 一家非常好喝的奶茶店!</li>
-        <li class="list-group-item">
-          <h5>
-            推荐商品
-          </h5>
-          <div style="height:10px"> </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉葡萄</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                <img src="..." class="card-img-top" alt="...">
-              </div>
-              <div>多肉青提</div>
-            </div>
-            <div class="col-sm-4">
-              <div>
-                  <img src="..." class="card-img-top" alt="...">
-                </div>
-              <div>多肉莓莓</div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
