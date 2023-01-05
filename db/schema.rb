@@ -55,10 +55,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_182722) do
     t.decimal "price"
     t.string "image"
     t.text "content"
-    t.integer "store_id", null: false
+    t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["store_id"], name: "index_items_on_store_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -98,7 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_182722) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string "name"
     t.string "image"
     t.string "address"
     t.integer "user_id", null: false
@@ -127,7 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_182722) do
   add_foreign_key "comments", "orders"
   add_foreign_key "deliveries", "orders"
   add_foreign_key "deliveries", "riders"
-  add_foreign_key "items", "stores"
+  add_foreign_key "items", "sellers"
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"

@@ -68,12 +68,11 @@
               
             </div>
             <div class="col-sm-4">
-              <%= link_to comments_path, method: :get do %>
-                <button type="button" class="btn btn-primary" style="width: 4rem;">
-                  评论
-                </button>
-              <% end %>
-            </div>
+           <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              评论
+            </button>
+              </div>
           </div>
         </li>
       </ul>
@@ -133,9 +132,9 @@
               
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                评论
-              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            评论
+          </button>
             </div>
           </div>
         </li>
@@ -196,9 +195,9 @@
               
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-primary" style="width: 4rem;">
-                评论
-              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            评论
+          </button>
             </div>
           </div>
         </li>
@@ -272,15 +271,26 @@
   
 </div>
 
+<!-- Button trigger modal -->
 
 
-<script type="text/javascript">
-var enableTable=function() {
-$('#myTab button').on('click', function (event) {
-  event.preventDefault()
-  $(this).tab('show')
-})
-};
-enableTable();
-</script>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
