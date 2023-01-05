@@ -18,10 +18,9 @@
     <div class="card" style="width: 18rem;">
       <div class="row">
         <div class="col-sm-4">
-          <%# <% if @this_seller.image.attached? %> 
-            <img src="<%= (url_for(@this_seller.image)) %>" class="card-img-top" alt="..."> 
-          <%# <% end %> 
-          <%# <img src="..." class="card-img-top" alt="..."> %>
+          <% if @this_seller.image.attached? %>
+            <img src="<%= (url_for(@this_seller.image)) %>" class="card-img-top" alt="..." /> 
+          <% end %> 
         </div>
         <div class="col-sm-8">
           <div style="height:10px"> </div>
