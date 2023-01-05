@@ -44,9 +44,9 @@
             <% end %>
           </li>
           <% @tmp_buyer=Buyer.find_by(id: order.buyer_id) %>
-          <% @tmp_user=User.find_by(id: @seller.user_id) %>
+          <% @seller=Seller.find_by(id: order.seller.id) %>
           <li class="list-group-item">地址: <%= @seller.address %></li>
-          <li class="list-group-item">店铺名称: <%= @tmp_user.username%></li>
+          <li class="list-group-item">店铺名称: <%= @seller.user.username%></li>
           <li class="list-group-item">用户地址: <%= @tmp_buyer.address %></li>
           <li class="list-group-item">
             <div class="row">
@@ -74,28 +74,4 @@
 
   <% end %>
   
-</div>
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
