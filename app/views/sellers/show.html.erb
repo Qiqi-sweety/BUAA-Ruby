@@ -27,7 +27,7 @@
           基本信息 
         </button>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div style="height:50px"> </div>
         <div class="card" style="width: 18rem;">
           <div class="row">
@@ -55,26 +55,30 @@
           数据统计
         </button>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div style="height:50px"> </div>
-        <div class="card">
+        <div class="card" style="width: 24rem;">
           <div class="card-body">
-            <h5 class="card-title">月份销量统计图</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <ul class="list-group list-group-flush">
+            <% tmp_count = 0 %>
+            <% @shop_items.each do |item| %>
+              <% tmp_count += 1 %>
+            <% end %>
+            <li class="list-group-item">总商品数量: <%= tmp_count %></li>
+            <% @orders=Order.where(seller_id: @this_seller.id)%>
+            <% tmp_count = 0 %>
+            <% tmp_money = 0 %>
+            <% @orders.each do |item| %>
+              <% tmp_count += 1 %>
+              <% tmp_money += item.money %>
+            <% end %>
+            <li class="list-group-item">总订单数: <%= tmp_count %></li>
+            <li class="list-group-item">总销售额: <%= tmp_money %> 元</li>
+          </ul>
           </div>
         </div>
       </div>
-      <div class="col-sm-3">
-        <div style="height:50px"> </div>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">月份收入统计图</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
     <div style="height:30px"> </div>
