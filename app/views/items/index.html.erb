@@ -14,6 +14,9 @@
 </ul>
 <div style="height:30px"> </div>
 
+<% @this_seller = Seller.find_by(user_id: current_user.id)%>
+<% @shop_items = Item.where(seller_id: @this_seller.id) %>
+
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <ul class="list-group list-group-flush">
@@ -41,110 +44,36 @@
           </div>
         </div>
       </li>
-      <li class="list-group-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm justify-content-center">
-              序号1
-            </div>
-            <div class="col-sm justify-content-center">
-              多肉葡萄
-            </div>
-            <div class="col-sm">
-              Logo
-            </div>
-            <div class="col-sm">
-              28RMB/杯
-            </div>
-            <div class="col-sm">
-              332杯/月
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
-                    删除
-                </button>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm justify-content-center">
-              序号2
-            </div>
-            <div class="col-sm justify-content-center">
-              多肉青提
-            </div>
-            <div class="col-sm">
-              Logo
-            </div>
-            <div class="col-sm">
-              29RMB/杯
-            </div>
-            <div class="col-sm">
-              232杯/月
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
-                    删除
-                </button>
+      <% count = 1 %>
+      <% @shop_items.each do |shop_item| %>
+        <li class="list-group-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm justify-content-center">
+                序号<%= shop_item.id %>
+              </div>
+              <div class="col-sm justify-content-center">
+                <%= shop_item.name %>
+              </div>
+              <div class="col-sm">
+                
+              </div>
+              <div class="col-sm">
+                <%= shop_item.price %>元/杯
+              </div>
+              <div class="col-sm">
+                332杯/月
+              </div>
+              <div class="col-sm">
+                  <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
+                      删除
+                  </button>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm justify-content-center">
-              序号3
-            </div>
-            <div class="col-sm justify-content-center">
-              多肉莓莓
-            </div>
-            <div class="col-sm">
-              Logo
-            </div>
-            <div class="col-sm">
-              32RMB/杯
-            </div>
-            <div class="col-sm">
-              142杯/月
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
-                    删除
-                </button>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm justify-content-center">
-              序号4
-            </div>
-            <div class="col-sm justify-content-center">
-              金顶乌龙
-            </div>
-            <div class="col-sm">
-              Logo
-            </div>
-            <div class="col-sm">
-              16RMB/杯
-            </div>
-            <div class="col-sm">
-              82杯/月
-            </div>
-            <div class="col-sm">
-                <button type="button" class="btn btn-primary" style="width: 4rem; height: 2rem">
-                    删除
-                </button>
-            </div>
-          </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
+      
     </ul>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
