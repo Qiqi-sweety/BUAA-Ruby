@@ -92,7 +92,7 @@
           <div class="card" style="width: 13rem;">
             <div class="row">
               <div class="col-sm-4">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="" class="card-img-top" alt="...">
               </div>
               <div class="col-sm-8">
                 <div style="height:10px"> </div>
@@ -236,7 +236,7 @@
                     
                   </div>
                   <div class="col-sm-4">
-                    <%= link_to orders_path(money: @money, seller_id: @seller.id, cart_id: @cart.id), method: :get, data: {confirm: "你确定吗？"} do %>
+                    <%= link_to my_create_order_path(money: @money, seller_id: @seller.id, cart_id: @cart.id), method: :post, data: {confirm: "你确定吗？"} do %>
                       <button type="button" class="btn btn-primary" style="width: 4rem;">
                         下单
                       </button>

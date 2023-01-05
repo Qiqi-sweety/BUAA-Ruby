@@ -3,9 +3,16 @@ class DeliveriesController < ApplicationController
 
   # GET /deliveries or /deliveries.json
   def index
-    @deliveries = Delivery.all
+    
   end
 
+  def my_order
+    @delivery = Delivery.new(order_id: params[:order_id], isFinished: false)
+    @delivery.save
+    @order=Order.find_by(id: params[:order_id])
+    @order.isDelivered=true
+    @order.save
+  end
   # GET /deliveries/1 or /deliveries/1.json
   def show
   end

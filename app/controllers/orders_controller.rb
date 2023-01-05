@@ -3,29 +3,30 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    if params[:id]
-      @order = Order.new(money: params[:money], isDelivered: false, isProcessed: false, buyer_id: current_user.id, seller_id: params[:seller_id])
-      @order.save
-      @cart=Cart.find_by(id: params[:cart_id])
-      @seller=Seller.find_by(id: params[:seller_id])
-      @cart_items=OrderItem.where(cart_id: @cart.id)
-      @cart_items.each do |cart_item|
-        @tmp_item=Item.find_by(id: cart_item.item_id)
-        @tmp_item.sales += cart_item.count
-        @tmp_item.save
-        cart_item.order_id = @order.id
-        cart_item.cart = nil
-        cart_item.save
-      end
-      @cart.delete
-      redirect_to @seller
-    end
+      
   end
 
   # GET /orders/1 or /orders/1.json
   def show
   end
 
+  def my_create
+    @order = Order.new(money: params[:money], isDelivered: false, isProcessed: false, buyer_id: current_user.id, seller_id: params[:seller_id])
+    @order.save
+    @cart=Cart.find_by(id: params[:cart_id])
+    @seller=Seller.find_by(id: params[:seller_id])
+    @cart_items=OrderItem.where(cart_id: @cart.id)
+    @cart_items.each do |cart_item|
+      @tmp_item=Item.find_by(id: cart_item.item_id)
+      @tmp_item.sales += cart_item.count
+      @tmp_item.save
+      cart_item.order_id = @order.id
+      cart_item.cart = nil
+      cart_item.save
+    end
+    @cart.delete
+    redirect_to @seller 
+  end
   # GET /orders/new
   def new
   

@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   resources :migrations
   resources :order_items
   resources :carts
-  resources :deliveries
+  resources :deliveries do
+    post :my_order, on: :member 
+  end
   resources :comments
-  resources :orders
+  resources :orders do
+    post :my_create, on: :member
+  end
   resources :riders
   resources :buyers
   resources :items

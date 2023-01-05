@@ -32,12 +32,6 @@
                   <% end %>
                 </li>
               </ul>
-              <div class="ml-5">
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="搜索感兴趣的商品" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
             </div>
             
             <div style="margin-left: 20px; margin-right: 20px; text-decoration: none !important;">
@@ -70,7 +64,7 @@
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to orders_path, method: :get do %>
+                  <%= link_to new_order_path, method: :get do %>
                     <button type="button" class="btn btn-light">订单管理</button>
                   <% end %>
                 </li>

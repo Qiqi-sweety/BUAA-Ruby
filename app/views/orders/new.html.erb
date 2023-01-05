@@ -2,20 +2,20 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <%= link_to orders_path, method: :get do %>
-      <button class="nav-link " id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待发货</button>
+    <%= link_to new_order_path, method: :get do %>
+      <button class="nav-link  active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待发货</button>
     <% end %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to new_order_path, method: :get do %>
-      <button class="nav-link active" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已发货</button>
+    <%= link_to orders_path, method: :get do %>
+      <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已发货</button>
     <% end %>
   </li>
 </ul>
 <div style="height:30px"> </div>
 
 <% @seller = Seller.find_by(user_id: current_user.id) %>
-<% @orders1=Order.where(seller_id: @seller.id, isProcessed: true)%>
+<% @orders1=Order.where(seller_id: @seller.id, isProcessed: false)%>
 
 <div class="row">
   <% @count = 0%>
