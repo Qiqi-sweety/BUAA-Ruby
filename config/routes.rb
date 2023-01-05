@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :carts
   resources :deliveries do
-    post :my_order, on: :member 
+    post :my_order,:on => :collection
   end
   resources :comments
   resources :orders do

@@ -3,7 +3,9 @@
 pin "application", preload: true
 pin "custom/hello"
 pin "custom/buyer_change"
+pin "custom/draw"
 pin "bootstrap", to: "bootstrap.min.js", preload: true
+pin "echart", to:"https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js", preload: true
 pin "jquery", to: "jquery.min.js", preload: true
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
