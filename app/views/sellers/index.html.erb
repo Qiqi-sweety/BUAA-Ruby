@@ -4,6 +4,8 @@
 
 <div style="height:20px"> </div>
 
+<% @this_seller = Seller.find_by(id: @seller_user_id)%>
+
 <div class="row">
   
   <div class="col-sm-1 mx-4">
@@ -21,12 +23,11 @@
         <div class="col-sm-8">
           <div style="height:10px"> </div>
           <div class="card-body">
-            <h5 class="card-title">喜茶(乐山路店)</h5>
+            <h5 class="card-title"> <%= current_user.username %> </h5>
           </div>
         </div>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">电话号码: 18811320635</li>
         <li class="list-group-item">地址: 南京市建邺区碧瑶花园</li>
         <li class="list-group-item">店铺描述: 一家非常好喝的奶茶店!</li>
       </ul>

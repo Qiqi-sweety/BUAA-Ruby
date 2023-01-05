@@ -27,56 +27,56 @@
         </div>
         
         <div class="field">
-          <%= f.label "用户名：    " %>
-          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+          <%= f.label "用户名：    ",  :class => "form-label", :style => "width: 80px;", :required => 'required' %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username",:style => "width: 250px;" %>
         </div>
         
         <div style="height:10px"> </div>
 
         <div class="field">
-          <%= f.label "输入密码：  " %>
+          <%= f.label "输入密码：  ",:class => "form-label", :style => "width: 80px;", :required => 'required' %>
           
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password",:style => "width: 250px;" %>
         </div>
 
         <div style="height:10px"> </div>
 
         <div class="field">
-          <%= f.label "确认密码：" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.label "确认密码：", :class => "form-label", :style => "width: 80px;", :required => 'required' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",:style => "width: 250px;" %>
         </div>
         <div style="height:10px"> </div>
         <div id="register1">
         <%= f.fields_for :buyer_attributes do |user_profile_form| %>
-            <%= user_profile_form.label "手机：    " %>
-            <%= user_profile_form.text_field :telephone, autofocus: false  %>
+            <%= user_profile_form.label "手机：    ",:class => "form-label", :style => "width: 80px;", :required => 'required' %>
+            <%= user_profile_form.text_field :telephone, autofocus: false,:style => "width: 250px;"  %>
             <div style="height:10px"> </div>
 
-            <%= user_profile_form.label "地址：    " %>
-            <%= user_profile_form.text_field :address, autofocus: false,  placeholder:"第三红岸基地" %>
+            <%= user_profile_form.label "地址：    ",:class => "form-label", :style => "width: 80px;", :required => 'required' %>
+            <%= user_profile_form.text_field :address, autofocus: false,:style => "width: 250px;" %>
         <% end %>
         </div>
          <div id="register2" style="display:none">
         <%= f.fields_for :seller_attributes do |user_profile_form| %>
-            <%= user_profile_form.label "地址：    " %>
-            <%= user_profile_form.text_field :address, autofocus: false, placeholder:"第三红岸基地" %>
+            <%= user_profile_form.label "地址：    ",:class => "form-label", :style => "width: 80px;", :required => 'required' %>
+            <%= user_profile_form.text_field :address, autofocus: false, :style => "width: 250px;" %>
            <div style="height:10px"> </div>
-            <%= user_profile_form.label "logo：    " %>
+            <%= user_profile_form.label "logo：    ",:class => "form-label", :style => "width: 80px;", :required => 'required' %>
             <%= user_profile_form.file_field :image, accept: 'image/png,image/jpeg'%>
         <% end %>
         </div>
          <div id="register3" style="display:none">
         <%= f.fields_for :rider_attributes do |user_profile_form| %>
-            <%= user_profile_form.label "手机：    " %>
-            <%= user_profile_form.text_field :telephone, autofocus: false%>
+            <%= user_profile_form.label "手机：    ",:class => "form-label", :style => "width: 80px;", :required => 'required'  %>
+            <%= user_profile_form.text_field :telephone, autofocus: false, :style => "width: 250px;"%>
            <div style="height:10px"> </div>
-            <%= user_profile_form.label "地址：    " %>
-            <%= user_profile_form.text_field :address, autofocus: false, placeholder:"第三红岸基地" %>
+            <%= user_profile_form.label "地址：    ",:style => "width: 80px;", :required => 'required'  %>
+            <%= user_profile_form.text_field :address, autofocus: false, :style => "width: 250px;" %>
         <% end %>
         </div>
         <div style="height:10px"> </div>
-        <div class="actions">
-          <%= f.submit "注册" ,:style => "width: 100px;", :required => 'required' %>
+        <div class="actions d-flex justify-content-center">
+          <%= f.submit "注册" ,:class => "btn btn-dark" %>
         </div>
       <% end %>
       <% end %>
