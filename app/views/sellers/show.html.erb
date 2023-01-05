@@ -114,7 +114,7 @@
     <div class="row">
       <% @shop_items.each do |shop_item| %>
         <div class="col-sm-3">
-          <div style="height:50px"> </div>
+          <div style="height:10px"> </div>
           <div class="card" style="width: 18rem;">
             <div class="row">
               <div class="col-sm-4">
@@ -236,7 +236,7 @@
                     
                   </div>
                   <div class="col-sm-4">
-                    <%= link_to new_order_path(money: @money, seller_id: @seller.id, cart_id: @cart.id), method: :get, data: {confirm: "你确定吗？"} do %>
+                    <%= link_to orders_path(money: @money, seller_id: @seller.id, cart_id: @cart.id), method: :get, data: {confirm: "你确定吗？"} do %>
                       <button type="button" class="btn btn-primary" style="width: 4rem;">
                         下单
                       </button>
