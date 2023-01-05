@@ -25,8 +25,7 @@ class ItemsController < ApplicationController
     @item.seller =Seller.find_by(user_id: current_user.id)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
-        format.json { render :show, status: :created, location: @item }
+        format.html { redirect_to items_path, notice: "Item was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @item.errors, status: :unprocessable_entity }
