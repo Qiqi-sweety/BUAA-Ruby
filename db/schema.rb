@@ -86,7 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_034247) do
     t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sales"
+    t.integer "sales", default: 0
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
