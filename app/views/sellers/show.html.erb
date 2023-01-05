@@ -17,6 +17,7 @@
 <% @this_seller = Seller.find_by(id: @seller.id) %>
 <% @shop_items = Item.where(seller_id: @this_seller.id) %>
 <% @ranked_items = (@shop_items.sort_by &:sales).reverse.first(5) %>
+<% @this_buyer = Buyer.find_by(user_id: current_user.id) %>
 
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
@@ -137,9 +138,11 @@
                   <div class="col-sm-8">
                   </div>
                   <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary" style="width: 4rem;">
-                      添加
-                    </button>
+                    <%= link_to carts_path(item_id: shop_item.id, seller_id: @seller.id), method: :get, data: {confirm: "你确定吗？"} do %>
+                      <button type="button" class="btn btn-primary" style="width: 4rem;">
+                        添加
+                      </button>
+                    <% end %>
                   </div>
                 </div>
               </li>
@@ -198,63 +201,51 @@
         style="border: 3px solid black; border-radius: 30px; width: 800px;">
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <h2 class="my-4">购物车</h2>
-
-          <ul class="list-group list-group-flush" style="width:80%">
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-sm-5">
-                  商品名称: 多肉葡萄
+          <% if Cart.find_by(buyer_id: @this_buyer.id, seller_id: @this_seller.id)%>
+            <% @cart = Cart.find_by(buyer_id: @this_buyer.id, seller_id: @this_seller.id) %>
+            <% @cart_items = OrderItem.where(cart_id: @cart.id)%>
+            <ul class="list-group list-group-flush" style="width:80%">
+              <li class="list-group-item">
+                <% @money=0 %>
+                <% @cart_items.each do |cart_item| %>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <% @tmp_item=Item.find_by(id:cart_item.item_id) %>
+                      商品名称: <%= @tmp_item.name%>
+                    </div>
+                    <div class="col-sm-3">
+                      商品数量: <%= cart_item.count%>
+                    </div>
+                    <div class="col-sm-4">
+                      价格: <%= cart_item.money%>元
+                      <% @money += cart_item.money%>
+                    </div>
+                  </div>
+                  <div style="height:10px"> </div>
+                <% end %>
+              </li>
+              <% tmp_user=User.find_by(id: @this_seller.user_id)%>
+              <li class="list-group-item">店铺名称: <%= tmp_user.username %></li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div style="height:5px"> </div>
+                    总价: <%= @money %>元
+                  </div>
+                  <div class="col-sm-3">
+                    
+                  </div>
+                  <div class="col-sm-4">
+                    <%= link_to new_order_path(money: @money, seller_id: @seller.id, cart_id: @cart.id), method: :get, data: {confirm: "你确定吗？"} do %>
+                      <button type="button" class="btn btn-primary" style="width: 4rem;">
+                        下单
+                      </button>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="col-sm-3">
-                  商品数量: 2
-                </div>
-                <div class="col-sm-4">
-                  价格: 56RMB
-                </div>
-              </div>
-              <div style="height:10px"> </div>
-              <div class="row">
-                <div class="col-sm-5">
-                  商品名称: 多肉青提
-                </div>
-                <div class="col-sm-3">
-                  商品数量: 2
-                </div>
-                <div class="col-sm-4">
-                  价格: 58RMB
-                </div>
-              </div>
-              <div style="height:10px"> </div>
-              <div class="row">
-                <div class="col-sm-5">
-                  商品名称: 多肉莓莓
-                </div>
-                <div class="col-sm-3">
-                  商品数量: 2
-                </div>
-                <div class="col-sm-4">
-                  价格: 64RMB
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item">店铺名称: 喜茶（乐山路店）</li>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-sm-5">
-                  <div style="height:5px"> </div>
-                  总价: 178RMB
-                </div>
-                <div class="col-sm-3">
-                  
-                </div>
-                <div class="col-sm-4">
-                  <button type="button" class="btn btn-primary" style="width: 4rem;">
-                    下单
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul> 
+          <% end %>
         </div>
       </div>
     </div>

@@ -3,9 +3,28 @@ class CartsController < ApplicationController
 
   # GET /carts or /carts.json
   def index
-    @carts = Cart.all
+    @item = Item.find_by(id: params[:item_id])
+    @buyer=Buyer.find_by(user_id:current_user.id)
+    @seller = Seller.find_by(id: params[:seller_id])
+    if Cart.find_by(seller_id: params[:seller_id], buyer_id: @buyer.id)
+      @cart=Cart.find_by(seller_id: params[:seller_id], buyer_id: @buyer.id)
+    else
+      @cart=Cart.new(seller_id: params[:seller_id], buyer_id: @buyer.id)
+      @cart.save
+    end
+    @order_item=OrderItem.find_by(cart_id: @cart.id)
+    if OrderItem.find_by(cart_id: @cart.id, item_id: params[:item_id])
+      @order_item=OrderItem.find_by(cart_id: @cart.id)
+      @order_item.count += 1
+      @order_item.money += @item.price
+    else
+      @order_item=OrderItem.new(item_id: params[:item_id], cart_id: @cart.id, count: 1, cart_id: @cart.id, money: @item.price)
+    end
+    @order_item.save
+    redirect_to @seller
   end
 
+  
   # GET /carts/1 or /carts/1.json
   def show
   end
@@ -65,6 +84,6 @@ class CartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cart_params
-      params.require(:cart).permit(:buyer_id, :seller_id)
+      params.require(:cart).permit(:buyer_id, :seller_id, :item_id, :cart_id)
     end
 end

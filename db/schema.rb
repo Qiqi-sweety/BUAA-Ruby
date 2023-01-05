@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_034247) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_114527) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -94,8 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_034247) do
     t.integer "count"
     t.decimal "money"
     t.integer "item_id", null: false
-    t.integer "order_id", null: false
-    t.integer "cart_id", null: false
+    t.integer "order_id"
+    t.integer "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_order_items_on_cart_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_034247) do
     t.integer "buyer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isCommented", default: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"
   end
