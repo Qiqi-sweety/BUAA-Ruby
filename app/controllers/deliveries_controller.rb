@@ -10,8 +10,8 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.new(order_id: params[:order_id], isFinished: false)
     @delivery.save
     @order=Order.find_by(id: params[:order_id])
-    @order.isDelivered=true
-    @order.save
+    @order.update(isProcessed: true)
+    redirect_to new_order_path
   end
   # GET /deliveries/1 or /deliveries/1.json
   def show
