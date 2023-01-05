@@ -79,10 +79,11 @@
       <div class="card" style="width: 13rem;">
         <div class="row">
           <div class="col-sm-4">
-            
+            <img src="<%= (url_for(ranked_item.image)) %>" class="card-img-top" alt="..." /> 
           </div>
           <div class="col-sm-8">
-            <div style="height:10px"> </div>
+            <div style="height:10px">
+            </div>
             <div class="card-body">
               <h5 class="card-title"><%= ranked_item.name %></h5>
             </div>
