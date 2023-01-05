@@ -3,15 +3,14 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+      
   end
 
   # GET /orders/1 or /orders/1.json
   def show
   end
 
-  # GET /orders/new
-  def new
+  def my_create
     @order = Order.new(money: params[:money], isDelivered: false, isProcessed: false, buyer_id: current_user.id, seller_id: params[:seller_id])
     @order.save
     @cart=Cart.find_by(id: params[:cart_id])
@@ -26,7 +25,11 @@ class OrdersController < ApplicationController
       cart_item.save
     end
     @cart.delete
-    redirect_to @seller
+    redirect_to @seller 
+  end
+  # GET /orders/new
+  def new
+  
   end
 
   # GET /orders/1/edit

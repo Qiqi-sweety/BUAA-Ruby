@@ -8,12 +8,15 @@
 
 <div class="row">
   <% @shops.each do |shop| %>
+    <% @tmp_seller = Seller.find_by(user_id: shop.id)%>
     <div class="col-sm-4 mx=5">
       <div style="height:10px"> </div>
       <div class="card" style="width: 24rem;">
         <div class="row">
           <div class="col-sm-4">
-            <img src="..." class="card-img-top" alt="...">
+            <% if @tmp_seller.image.attached? %>
+              <img src="<%= (url_for(@tmp_seller.image)) %>" class="card-img-top" alt="...">
+            <% end %>
           </div>
           <div class="col-sm-1">
           </div>
@@ -44,7 +47,7 @@
               <% @ranked_items.each do |ranked_item| %>
                 <div class="col-sm-4">
                   <div>
-                    <img src="..." class="card-img-top" alt="...">
+                    
                   </div>
                   <div><%= ranked_item.name %></div>
                 </div>

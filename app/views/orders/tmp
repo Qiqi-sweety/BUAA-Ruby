@@ -2,19 +2,20 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <%= link_to orders_path, method: :get do %>
-      <button class="nav-link  active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待配送</button>
+    <%= link_to new_order_path, method: :get do %>
+      <button class="nav-link  active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">待发货</button>
     <% end %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to new_order_path, method: :get do %>
-      <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已配送</button>
+    <%= link_to @order, method: :get do %>
+      <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">已发货</button>
     <% end %>
   </li>
 </ul>
 <div style="height:30px"> </div>
 
-<% @orders1=Order.where(isDelivered: false)%>
+<% @seller = Seller.find_by(user_id: current_user.id) %>
+<% @orders1=Order.where(seller_id: @seller.id, isProcessed: false)%>
 
 <div class="row">
   <% @count = 0%>
@@ -58,10 +59,11 @@
                 
               </div>
               <div class="col-sm-4">
-            <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                发货
-              </button>
+              <%= link_to deliveries_path(order_id: @order.id) , method: :get, data: {confirm: "你确定吗？"}%>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  发货
+                </button>
+              <%= %>
                 </div>
             </div>
           </li>
@@ -74,28 +76,4 @@
 
   <% end %>
   
-</div>
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
