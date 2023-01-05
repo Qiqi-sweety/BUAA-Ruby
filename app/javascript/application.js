@@ -5,5 +5,6 @@ import "controllers"
 //= require jquery
 //= require jquery_ujs
 import "jquery"
+import "echart"
 import "jquery_ujs"
 import * as bootstrap from "bootstrap"  
